@@ -33,11 +33,11 @@ class Mobile(models.Model):
 #Μεταδεδομένα - Χαρακτηριστικά
     screen_type=models.CharField(max_length=30)
     screen_size=models.DecimalField(max_digits=4,decimal_places=2)
-    ram=models.PositiveIntegerField
-    storage=models.PositiveIntegerField
-    cores=models.PositiveIntegerField
+    ram=models.PositiveIntegerField()
+    storage=models.PositiveIntegerField()
+    cores=models.PositiveIntegerField()
     price=models.DecimalField(max_digits=10,decimal_places=2)
     def __str__(self):
-        return f"{self.manufacturer.name} {self.name}"
+        return f"{self.Manufacturer.name} {self.name}"
 
 

@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-p(*%*yqq$2_wyx!bv#^08-jtw8tb#njvpamihgy0w2q=i66*um
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.pythonanywhere.com']
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+]
 
 
 # Application definition
@@ -104,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
-LANGUAGE_CODE = 'el'
+LANGUAGE_CODE = 'el-gr'
 
 TIME_ZONE = 'Europe/Athens'
 
@@ -117,3 +121,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+MEDIA_URL='/media/'
+MEDIA_ROOT= BASE_DIR / 'media/'
