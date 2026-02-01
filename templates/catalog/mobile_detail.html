@@ -1,0 +1,39 @@
+{% extends 'catalog/base.html' %}
+
+{% block content %}
+<div class="page-header">
+    <h3>{{ mobile.Manufacturer.name }} {{ mobile.name }}</h3>
+</div>
+
+<div class="row">
+    <div class="col-md-5">
+        {% if mobile.image %}
+            <img src="{{ mobile.image.url }}" class="img-responsive thumbnail">
+        {% endif %}
+    </div>
+
+    <div class="col-md-7">
+        <ul class="list-group" style="line-height: 2;">
+            <li><b>Κατασκευαστής:</b> {{ mobile.Manufacturer.name }}</li>
+            <li><b>Λειτουργικό Σύστημα:</b> {{ mobile.OS.name }}</li>
+            <li><b>Επεξεργαστής:</b> {{ mobile.CpuManufacturer.name }} ({{ mobile.cores }} πυρήνες)</li>
+            <li><b>Δίκτυο:</b> {{ mobile.Network.name }}</li>
+            <li><b>Τύπος Οθόνης:</b> {{ mobile.screen_type }}</li>
+            <li><b>Μέγεθος Οθόνης:</b> {{ mobile.screen_size }} ίντσες</li>
+            <li><b>Μνήμη RAM:</b> {{ mobile.ram }} GB</li>
+            <li><b>Αποθηκευτικός Χώρος:</b> {{ mobile.storage }} GB</li>
+            <li><b>Τιμή: </b>{{ mobile.price }} €</li>
+             <li><b>Κριτική: </b>{{ mobile.review }}</li>
+            <li><b>Βαθμολογία: </b>{{ mobile.rating }}</li>
+        </ul>
+
+        <hr>
+
+        <a href="{% url 'mobile_list' %}" class="btn btn-info">
+            Επιστροφή στην Αρχική
+        </a>
+    </div>
+</div>
+
+
+{% endblock %}

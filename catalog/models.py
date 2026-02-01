@@ -2,6 +2,7 @@ from django.conf import settings
 from django.db import models
 # Create your models here.
 from django.utils import timezone
+
 # Πίνακας για τους Κατασκευαστές (π.χ. Apple, Samsung)
 class Manufacturer(models.Model):
     name=models.CharField(max_length=30)
@@ -26,18 +27,23 @@ class Network(models.Model):
 #Το κινητό (κυριο μοντέλο με τα δεδομένα)
 class Mobile(models.Model):
     name=models.CharField(max_length=30)
+    image = models.ImageField(null=True)
+
 #Σχέσεις - foreign keys
     Manufacturer=models.ForeignKey(Manufacturer,on_delete=models.CASCADE)
     OS=models.ForeignKey(OS,on_delete=models.CASCADE)
     CpuManufacturer=models.ForeignKey(CpuManufacturer,on_delete=models.CASCADE)
     Network=models.ForeignKey(Network,on_delete=models.CASCADE)
-#Μεταδεδομένα - Χαρακτηριστικά
+# Χαρακτηριστικά
     screen_type=models.CharField(max_length=30)
     screen_size=models.DecimalField(max_digits=4,decimal_places=2)
     ram=models.PositiveIntegerField()
     storage=models.PositiveIntegerField()
     cores=models.PositiveIntegerField()
     price=models.DecimalField(max_digits=10,decimal_places=2)
+    published_date = models.DateTimeField(blank=True, null=True, default=timezone.now)
+    review = models.TextField(null=True, blank=True)
+    rating = models.IntegerField(default=5)
     def __str__(self):
         return f"{self.Manufacturer.name} {self.name}"
 

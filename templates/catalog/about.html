@@ -1,0 +1,37 @@
+{% extends 'catalog/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="post"> <h2>Ποιοι είμαστε</h2>
+    <hr>
+
+<div class="about-container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="about-image-wrapper">
+    <img src="{% static 'images/about.jpg' %}" alt="Tech Mag Office" class="img-responsive img-rounded shadow-custom">
+</div>
+        </div>
+
+        <div class="col-md-7">
+            <div class="about-text-content">
+                <h1 class="about-title">Σχετικά με το <span class="text-primary">Tech Mag</span></h1>
+                <p class="lead">Η ψηφιακή σας πυξίδα στον κόσμο της κινητής τηλεφωνίας.</p>
+                <hr class="separator">
+
+                <p class="about-description">
+                    Το <b>Tech Mag</b> ξεκίνησε ως ένα όραμα για την παροχή έγκυρης και άμεσης πληροφόρησης στους λάτρεις της τεχνολογίας.
+                    Στις σελίδες μας, παρουσιάζουμε τα πιο σύγχρονα μοντέλα της αγοράς, αναλύοντας κάθε λεπτομέρεια που κάνει μια συσκευή να ξεχωρίζει.
+                </p>
+
+                <div class="mission-box">
+                    <h4><span class="glyphicon glyphicon-send"></span> Η Αποστολή μας</h4>
+                    <p>Να προσφέρουμε μια ολοκληρωμένη εμπειρία πλοήγησης, συνδυάζοντας την αισθητική με την τεχνική ακρίβεια.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+

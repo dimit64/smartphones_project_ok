@@ -1,0 +1,50 @@
+
+{% extends 'catalog/base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+
+    <div class="jumbotron text-center" style="background-color: #ffcc66; border: 8px solid #337ab7;">
+    <h1>Λίστα Smartphones</h1>
+    <p>Ανακαλύψτε τις κορυφαίες συσκευές της αγοράς</p>
+    </div>
+
+    <div class="row">
+        {% for mobile in mobiles %}
+
+            <div class="col-sm-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 style="text-align:center; font-weight: bold;" class="panel-title"><a href="{% url 'mobile_list' %}?brand={{ mobile.Manufacturer.id }}"  >
+    {{ mobile.Manufacturer.name }}
+</a></h3>
+                </div>
+            <div style="text-align: center;">
+                {% if mobile.image %}
+
+    <img src="{{ mobile.image.url }}" class="img-responsive center-block" style="max-height: 250px; width: auto;">
+{% endif %}
+            </div>
+                <div class="panel-body text-center">
+                    <h4>{{ mobile.name }}</h4>
+                    <p class="text-muted">Μέγεθος οθόνης {{ mobile.screen_size }}" - Μνήμη {{ mobile.ram }}GB RAM</p>
+                    <p style="text-align: center; color: #777; font-size: 0.9em;">
+                     <span class="glyphicon glyphicon-calendar"></span>
+                      Δημοσιεύτηκε: {{ mobile.published_date|date:"d/m/Y" }}
+                    </p>
+
+                </div>
+
+                <div class="panel-footer text-center">
+                    <p style="font-size: 1.2em;">{{ mobile.price }} €</p>
+                    <a href="{% url 'mobile_detail' pk=mobile.pk %}" class="btn btn-info btn-sm">
+                        Λεπτομέρειες
+                    </a>
+                </div>
+        </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
