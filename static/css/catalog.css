@@ -44,7 +44,12 @@ body {
     border-color: #FCA205;
     border-bottom: 4px solid #FCA205;
 }
-
+.dropdown-menu{
+    background-color: lightblue;
+}
+.dropdown-menu a {
+    color: black !important;
+}
 
 footer.container-fluid {
     flex-shrink: 0;
@@ -60,6 +65,4 @@ footer.container-fluid {
     border-color: #d48a04;
     color: white;
 }
-.navbar-inverse .container-fluid {
-    background-color: transparent;
-}
+
