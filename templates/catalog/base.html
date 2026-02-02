@@ -1,7 +1,9 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <title>Tech Mag</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,15 +25,31 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="{% url 'mobile_list' %}">Home</a></li>
+        <li><a href="{% url 'mobile_list' %}">Home</a></li>
           <li> <span style="color: ghostwhite;">Search:</span>
           <form type="get" action="/">
                 <input type="text" name="txt">
                 <input type="submit" value="Submit">
           </form>
           </li>
+<li class="dropdown">
+   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">OS filter<span class="caret"></span></a>
+    <ul class="dropdown-menu" role="menu">
+      {% for os in OS %}
+    <li>
+        <a href="{% url 'mobile_list' %}?os_id={{ os.id }}">
+            {{ os.name }}
+        </a>
+    </li>
+      {% endfor %}
+</ul>
+    </ul>
+</li>
 
 
+
+  </ul>
+</div>
       </ul>
     </div>
   </div>

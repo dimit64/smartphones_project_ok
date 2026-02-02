@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Mobile
+from .models import Mobile,Manufacturer,OS
 from django.utils import timezone
 from django.db.models import Q
 # Create your views here.
@@ -11,7 +11,9 @@ def index(request):
 
 def mobile_list(request):
     brand_id = request.GET.get('brand', '').strip()
+    os_id = request.GET.get('os_id', '').strip()
     txt=request.GET.get('txt', '').strip()
+
     mobiles = Mobile.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     if brand_id:
         mobiles = mobiles.filter(Manufacturer_id=brand_id)
@@ -20,9 +22,14 @@ def mobile_list(request):
             mobiles = mobiles.filter(
                 (Q(name__icontains=txt) | Q(review__icontains=txt) |Q(Manufacturer__name__icontains=txt) | Q(ram__icontains=txt) & Q(published_date__lte=timezone.now())
             ))
-            mobiles = mobiles.order_by('published_date')
+        else:
+            if os_id:
+                mobiles = mobiles.filter(OS_id=os_id)
 
-    return render(request, 'catalog/mobile_list.html', {'mobiles': mobiles})
+            else:   mobiles = Mobile.objects.filter(published_date__lte=timezone.now())
+    mobiles = mobiles.order_by('-published_date')
+
+    return render(request, 'catalog/mobile_list.html', {'mobiles': mobiles,'OS':OS.objects.all()})
 
 
 def mobile_detail(request, pk):

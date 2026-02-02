@@ -8,6 +8,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: lightblue;
 }
+
 .container {
     flex: 1 0 auto;
     padding-top: 20px;
@@ -44,12 +45,6 @@ body {
     border-color: #FCA205;
     border-bottom: 4px solid #FCA205;
 }
-.dropdown-menu{
-    background-color: lightblue;
-}
-.dropdown-menu a {
-    color: black !important;
-}
 
 footer.container-fluid {
     flex-shrink: 0;
@@ -65,4 +60,9 @@ footer.container-fluid {
     border-color: #d48a04;
     color: white;
 }
-
+.dropdown-menu a {
+    color: black !important;
+}
+.dropdown-menu {
+    background-color: darkseagreen !important;
+}
