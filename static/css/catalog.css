@@ -3,12 +3,16 @@
 body {
      display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Αυτό είναι το μυστικό: 100% του ύψους της οθόνης */
+    min-height: 100vh;
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: lightblue;
 }
 
+.jumbotron {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+}
 .container {
     flex: 1 0 auto;
     padding-top: 20px;
@@ -68,5 +72,5 @@ footer.container-fluid {
 }
 
 .img-grow:hover img{
-  max-height: 390px;
+  max-height: 2300px;
 }
