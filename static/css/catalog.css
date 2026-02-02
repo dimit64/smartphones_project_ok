@@ -23,11 +23,7 @@ body {
     text-align: center;
     width: 100%;
 }
-body {
-    display: flex;
-    flex-direction: column;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+
 .navbar-nav li a {
     color: white ;
     font-family: 'Segoe UI' Tahoma, Geneva, Verdana, sans-serif;
@@ -36,10 +32,7 @@ body {
     font-weight: bold;
 }
 
-.post img {
-    float: left;
-    padding: 6px;
-}
+
 .navbar-inverse {
     background-color: #000080;
     border-color: #FCA205;
@@ -65,4 +58,15 @@ footer.container-fluid {
 }
 .dropdown-menu {
     background-color: darkseagreen !important;
+}
+
+
+.img-grow img{
+  max-height: 280px;
+  width: auto;
+  transition: max-height 0.3s ease;
+}
+
+.img-grow:hover img{
+  max-height: 390px;
 }
